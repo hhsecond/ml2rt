@@ -2,8 +2,7 @@ import os
 import warnings
 from typing import Collection
 
-from .._util import is_installed
-from . import onnx_utils
+from . import utils
 
 
 def save_tensorflow(sess, path: str, output: Collection[str]):
@@ -15,7 +14,7 @@ def save_tensorflow(sess, path: str, output: Collection[str]):
     """
 
     # TODO: TF 1.14+ has issue with __spec__
-    if not is_installed('tensorflow'):
+    if not utils.is_installed('tensorflow'):
         raise RuntimeError('Please install Tensorflow to use this feature.')
     import tensorflow as tf
     graph_def = sess.graph_def
@@ -36,7 +35,7 @@ def save_torch(graph, path: str):
     :param graph: torchscript object
     :param path: Path to which the object will be serialized
     """
-    if not is_installed('torch'):
+    if not utils.is_installed('torch'):
         raise RuntimeError('Please install PyTorch to use this feature.')
     import torch
     # TODO how to handle the cpu/gpu
@@ -74,11 +73,11 @@ def save_sklearn(model, path: str, initial_types=None, prototype=None, shape=Non
     :param dtype: redisai.DType object which represents the type of the input to the model.
         Ignored if initial_types or prototype is not None
     """
-    if not is_installed(['onnxmltools', 'skl2onnx', 'pandas']):
+    if not utils.is_installed(['onnxmltools', 'skl2onnx', 'pandas']):
         raise RuntimeError('Please install onnxmltools, skl2onnx & pandas to use this feature.')
     from onnxmltools import convert_sklearn
     if initial_types is None:
-        initial_types = [onnx_utils.guess_onnx_tensortype(prototype, shape, dtype)]
+        initial_types = [utils.guess_onnx_tensortype(prototype, shape, dtype)]
     if not isinstance(initial_types, list):
         raise TypeError((
             "`initial_types` has to be a list. "
@@ -106,11 +105,11 @@ def save_sparkml(
     :param dtype: redisai.DType object which represents the type of the input to the model.
         Ignored if initial_types or prototype is not None
     """
-    if not is_installed(['onnxmltools', 'pyspark']):
+    if not utils.is_installed(['onnxmltools', 'pyspark']):
         raise RuntimeError('Please install onnxmltools & pyspark to use this feature.')
     from onnxmltools import convert_sparkml
     if initial_types is None:
-        initial_types = [onnx_utils.guess_onnx_tensortype(prototype, shape, dtype)]
+        initial_types = [utils.guess_onnx_tensortype(prototype, shape, dtype)]
     if not isinstance(initial_types, list):
         raise TypeError((
             "`initial_types` has to be a list. "
