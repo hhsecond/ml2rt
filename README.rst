@@ -1,5 +1,5 @@
 ======
-MLutil
+mlut - Machine Learning utilities
 ======
 
 
@@ -13,7 +13,7 @@ Machine learning utilities for model conversion, serialization, loading etc
 Documentation
 -------------
 
-MLutil provides some convenient functions to convert, save & load machine learning models. It currently supports Tensorflow, PyTorch, Sklearn, Spark and ONNX but frameworks like xgboost, coreml are on the way.
+mlut provides some convenient functions to convert, save & load machine learning models. It currently supports Tensorflow, PyTorch, Sklearn, Spark and ONNX but frameworks like xgboost, coreml are on the way.
 
 Saving Tensorflow model
 ***********************

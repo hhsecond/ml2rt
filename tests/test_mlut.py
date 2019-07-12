@@ -2,10 +2,10 @@ import time
 import os
 import sys
 
-from mlutil import load_model, load_script
-from mlutil import (
+from mlut import load_model, load_script
+from mlut import (
     save_tensorflow, save_torch, save_onnx, save_sklearn, save_sparkml)
-from mlutil import utils
+from mlut import utils
 import tensorflow as tf
 import torch
 from sklearn import linear_model, datasets
