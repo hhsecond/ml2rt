@@ -1,13 +1,19 @@
-======
+=================================
 mlut - Machine Learning utilities
-======
+=================================
 
 
 Machine learning utilities for model conversion, serialization, loading etc
 
 
 * Free software: Apache Software License 2.0
-* Documentation: https://mlutil.readthedocs.io.
+
+Installation
+------------
+
+::
+
+    pip install mlut
 
 
 Documentation
@@ -21,7 +27,7 @@ Saving Tensorflow model
 .. code-block:: python
 
     import tensorflow as tf
-    from mlutil import save_tensorflow
+    from mlut import save_tensorflow
     # train your model here
     sess = tf.Session()
     save_tensorflow(sess, path, output=['output'])
@@ -32,7 +38,7 @@ Saving PyTorch model
 .. code-block:: python
 
     # it has to be a torchscript graph made by tracing / scripting
-    from mlutil import save_torch
+    from mlut import save_torch
     save_torch(torch_script_graph, path)
 
 Saving ONNX model
@@ -40,7 +46,7 @@ Saving ONNX model
 
 .. code-block:: python
 
-    from mlutil import save_onnx
+    from mlut import save_onnx
     save_onnx(onnx_model, path)
 
 Saving sklearn model
@@ -48,7 +54,7 @@ Saving sklearn model
 
 .. code-block:: python
 
-    from mlutil import save_sklearn
+    from mlut import save_sklearn
     prototype = np.array(some_shape, dtype=some_dtype)  # Equivalent to the input of the model
     save_sklearn(sklearn_model, path, prototype=prototype)
 
@@ -68,7 +74,7 @@ Saving sparkml model
 
 .. code-block:: python
 
-    from mlutil import save_sparkml
+    from mlut import save_sparkml
     prototype = np.array(some_shape, dtype=some_dtype)  # Equivalent to the input of the model
     save_sparkml(spark_model, path, prototype=prototype)
 
@@ -91,6 +97,6 @@ Loading model & script
 
 .. code-block:: python
 
-    model = mlutil.load_model(path)
+    model = mlut.load_model(path)
 
-    script = mlutil.load_script(script)
+    script = mlut.load_script(script)
