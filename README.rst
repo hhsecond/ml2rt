@@ -1,6 +1,6 @@
-=================================
-mlut - Machine Learning utilities
-=================================
+=====================================================
+ml2rt - Utilities for taking ML to different runtimes
+=====================================================
 
 
 Machine learning utilities for model conversion, serialization, loading etc
@@ -13,13 +13,13 @@ Installation
 
 ::
 
-    pip install mlut
+    pip install ml2rt
 
 
 Documentation
 -------------
 
-mlut provides some convenient functions to convert, save & load machine learning models. It currently supports Tensorflow, PyTorch, Sklearn, Spark and ONNX but frameworks like xgboost, coreml are on the way.
+ml2rt provides some convenient functions to convert, save & load machine learning models. It currently supports Tensorflow, PyTorch, Sklearn, Spark and ONNX but frameworks like xgboost, coreml are on the way.
 
 Saving Tensorflow model
 ***********************
@@ -27,7 +27,7 @@ Saving Tensorflow model
 .. code-block:: python
 
     import tensorflow as tf
-    from mlut import save_tensorflow
+    from ml2rt import save_tensorflow
     # train your model here
     sess = tf.Session()
     save_tensorflow(sess, path, output=['output'])
@@ -38,7 +38,7 @@ Saving PyTorch model
 .. code-block:: python
 
     # it has to be a torchscript graph made by tracing / scripting
-    from mlut import save_torch
+    from ml2rt import save_torch
     save_torch(torch_script_graph, path)
 
 Saving ONNX model
@@ -46,7 +46,7 @@ Saving ONNX model
 
 .. code-block:: python
 
-    from mlut import save_onnx
+    from ml2rt import save_onnx
     save_onnx(onnx_model, path)
 
 Saving sklearn model
@@ -54,7 +54,7 @@ Saving sklearn model
 
 .. code-block:: python
 
-    from mlut import save_sklearn
+    from ml2rt import save_sklearn
     prototype = np.array(some_shape, dtype=some_dtype)  # Equivalent to the input of the model
     save_sklearn(sklearn_model, path, prototype=prototype)
 
@@ -74,7 +74,7 @@ Saving sparkml model
 
 .. code-block:: python
 
-    from mlut import save_sparkml
+    from ml2rt import save_sparkml
     prototype = np.array(some_shape, dtype=some_dtype)  # Equivalent to the input of the model
     save_sparkml(spark_model, path, prototype=prototype)
 
@@ -97,6 +97,6 @@ Loading model & script
 
 .. code-block:: python
 
-    model = mlut.load_model(path)
+    model = ml2rt.load_model(path)
 
-    script = mlut.load_script(script)
+    script = ml2rt.load_script(script)

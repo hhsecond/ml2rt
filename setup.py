@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-exec(open('mlut/version.py').read())
+exec(open('ml2rt/version.py').read())
 
 requirements = []
 extras_require = {
@@ -41,13 +41,13 @@ setup(
     license="Apache Software License 2.0",
     long_description=readme + '\n\n',
     include_package_data=True,
-    keywords='mlut',
-    name='mlut',
-    packages=find_packages(include=['mlut']),
+    keywords='ml2rt',
+    name='ml2rt',
+    packages=find_packages(include=['ml2rt']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/hhsecond/mlut',
-    version=__version__,  # comes from mlut/version.py
+    url='https://github.com/hhsecond/ml2rt',
+    version=__version__,  # comes from ml2rt/version.py
     zip_safe=False,
 )
