@@ -11,7 +11,9 @@ def load_model(path: str):
 
 def load_script(path: str):
     """
-    Read the script file as binary and return the content
+    Load script is a convinient method that just reads the content from the file
+    and returns it, as of now. But eventually can do validations using PyTorch's
+    scirpt compile utility and clean up the input files for user etc
     """
     with open(path, 'rb') as f:
         return f.read()
