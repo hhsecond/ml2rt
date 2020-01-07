@@ -94,6 +94,7 @@ Sklearn and sparkml models will be converted to ONNX first and then save to the 
 
 Loading model & script
 **********************
+Loading function can load both single file models like freezed tensorflow model or torchscript model or onnx model as well as SavedModel from tensorflow
 
 .. code-block:: python
 
