@@ -21,9 +21,13 @@ def load_model(path: str, tags=None, signature=None):
     path = Path(path)
     if path.is_dir():  # Expecting TF SavedModel
         import tensorflow as tf
-        if tf.__version__ > '1.15':
-            raise RuntimeError("Tensorflow version must be 1.x (preferably 1.15) even"
-                               "if the model is built with 2.x")
+        if tf.__version__ > '1.15.9':
+            raise RuntimeError("Current tensorflow version must be 1.x (preferably 1.15)"
+                               "even if the model is built with 2.x. If this that doesn't"
+                               "work, follow the steps mentioned in this guide which uses tracing - "
+                               "https://leimao.github.io/blog/Save-Load-Inference-From-TF2-Frozen-Graph/"
+                               "\nBe warned that creating graph by using tracing might not give you"
+                               "expected result if your graph is relying on dynamic ops internally")
         if tags is None:
             tags = ['serve']
         if signature is None:
